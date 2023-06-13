@@ -1,0 +1,156 @@
+body[b-rkxcd2gwzl] {
+    background-color: #E6E6FA;
+}
+
+.blocks[b-rkxcd2gwzl] {
+    display: flex;
+}
+
+.blockParameters[b-rkxcd2gwzl] {
+    width: 25%;
+}
+
+.parameters[b-rkxcd2gwzl] {
+    display: flex;
+    margin-bottom: 10px;
+    align-items: center;
+}
+
+.geometric[b-rkxcd2gwzl] {
+    border: 1px solid #dddddd;
+    /* width: 380px; */
+    height: 280px;
+}
+
+.material[b-rkxcd2gwzl] {
+    border: 1px solid #dddddd;
+    /* width: 380px; */
+    height: 280px;
+}
+
+.mode[b-rkxcd2gwzl] {
+    border: 1px solid #dddddd;
+    /* width: 380px; */
+    height: 139px;
+}
+
+.decision[b-rkxcd2gwzl] {
+    border: 1px solid #dddddd;
+    /* width: 380px; */
+    height: 139px;
+}
+
+.coefficient[b-rkxcd2gwzl] {
+    border: 1px solid #dddddd;
+    /* width: 380px; */
+    height: 280px;
+}
+
+.materialH[b-rkxcd2gwzl] {
+    display: flex;
+    align-items: center;
+}
+
+.materialH select[b-rkxcd2gwzl] {
+    height: 25px;
+    width: 150px;
+    margin-left: 10px;
+}
+
+.material .name[b-rkxcd2gwzl] {
+    width: 180px;
+}
+
+.mode .name[b-rkxcd2gwzl] {
+    width: 160px;
+}
+
+.decision .name[b-rkxcd2gwzl] {
+    width: 220px;
+}
+
+.coefficient .name[b-rkxcd2gwzl] {
+    width: 210px;
+}
+
+h2[b-rkxcd2gwzl] {
+    margin-left: 10px;
+}
+
+.size[b-rkxcd2gwzl] {
+    margin: 10px;
+}
+
+.geometric .name[b-rkxcd2gwzl] {
+    width: 80px;
+}
+
+input[b-rkxcd2gwzl] {
+    width: 60px;
+    height: 20px;
+}
+
+.units[b-rkxcd2gwzl] {
+    margin-left: 10px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.name[b-rkxcd2gwzl] {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.culc[b-rkxcd2gwzl] {
+    width: 100%;
+    height: 30px;
+}
+
+.bd[b-rkxcd2gwzl] {
+    width: 50%;
+    height: 30px;
+}
+
+.bd_div[b-rkxcd2gwzl] {
+    display: flex;
+}
+
+canvas[b-rkxcd2gwzl] {
+    width: 49.8%;
+    height: 500px
+}
+
+table[b-rkxcd2gwzl] {
+    width: 100%;
+    height: 400px;
+}
+
+button[b-rkxcd2gwzl] {
+    background-color: #3366CC;
+    color: #FFFFFF;
+    font-size: 18px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 2px;
+}
+
+.bd[b-rkxcd2gwzl] {
+    margin-right: 2px;
+}
+
+.res[b-rkxcd2gwzl] {
+    display: flex;
+}
+
+.res div[b-rkxcd2gwzl] {
+    width: 33%;
+    text-align: center;
+    font-size: 24px;
+}
+
+td[b-rkxcd2gwzl] {
+    text-align: center;
+    font-size: 18px;
+    width: 33%;
+}

@@ -1,0 +1,169 @@
+﻿@using System.Globalization
+@using Database
+@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    var customCulture = (CultureInfo)Thread.CurrentThread.CurrentCulture.Clone();
+    customCulture.NumberFormat.NumberDecimalSeparator = ".";
+    Thread.CurrentThread.CurrentCulture = customCulture;
+    var dataService = new DataService();
+    var parameters = await dataService.ChannelDataBase.GetGeometricParameters("First");
+    var materials = dataService.MaterialDataBase.GetTypes();
+}
+
+
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chemistry</title>
+</head>
+
+<body>
+<div class="bd_div">
+    <button class="bd">Экспортировать базу данных</button>
+    <button class="bd">Импортировать базу данных</button>
+    <button class="exit">Выход</button>
+</div>
+<div class="blocks">
+    <div class="blockParameters geometric">
+        <h2>Геометрические параметры</h2>
+        <div class="size">
+            <div class="parameters">
+                <p class="name">Ширина:</p>
+
+                <input class="W" type="number" step="0.01" value="@parameters.Width">
+                <p class="units">м</p>
+            </div>
+            <div class="parameters">
+                <p class="name">Глубина:</p>
+                <input class="H" type="number" step="0.01" value="@parameters.Height">
+                <p class="units">м</p>
+            </div>
+            <div class="parameters">
+                <p class="name">Длина:</p>
+                <input class="L" type="number" step="0.01" value="@parameters.Length">
+                <p class="units">м</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="blockParameters material">
+        <div class="materialH">
+            <h2>Материал:</h2>
+            <select class="MaterialComboBox">
+                @foreach (var material in materials)
+                {
+                    <option>@material</option>
+                }
+            </select>
+        </div>
+        <div class="size">
+            <div class="parameters">
+                <p class="name">Плотность:</p>
+                <input class="P" type="number" value="1060">
+                <p class="units">
+                    кг/м
+                    <sup>
+                        <small>3</small>
+                    </sup>
+                </p>
+            </div>
+            <div class="parameters">
+                <p class="name">Удельная теплоёмкость:</p>
+                <input class="C" type="number" value="1200">
+                <p class="units">Дж/(кг°C)</p>
+            </div>
+            <div class="parameters">
+                <p class="name">Температура плавления:</p>
+                <input class="T0" type="number" value="175">
+                <p class="units">°C</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="blockParameters">
+        <div class="mode">
+            <h2>Режимные параметры:</h2>
+            <div class="size">
+                <div class="parameters">
+                    <p class="name">Скорость крышки:</p>
+                    <input class="Vu" type="number" value="0.7">
+                    <p class="units">м/c</p>
+                </div>
+                <div class="parameters">
+                    <p class="name">Температура крышки:</p>
+                    <input class="Tu" type="number" value="190">
+                    <p class="units">°C</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="decision">
+            <h2>Параметры метода решения:</h2>
+            <div class="size">
+                <div class="parameters">
+                    <p class="name">Шаг расчёта по длине канала:</p>
+                    <input class="step" type="number" value="0.1">
+                    <p class="units">м</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="blockParameters coefficient">
+        <h2>Эмпирические коэффициенты:</h2>
+        <div class="size">
+            <div class="parameters">
+                <p class="name">Коэффициент консистенции при температуре приведения:</p>
+                <input class="mu0" type="number" value="50000">
+                <p class="units">Па*с^n</p>
+            </div>
+            <div class="parameters">
+                <p class="name">Энергия активации вязкого течения материала:</p>
+                <input class="Ea" type="number" value="42000">
+                <p class="units">Дж/моль</p>
+            </div>
+            <div class="parameters">
+                <p class="name">Температура приведения:</p>
+                <input class="Tr" type="number" value="130">
+                <p class="units">°С</p>
+            </div>
+            <div class="parameters">
+                <p class="name">Индекс течения:</p>
+                <input class="n" type="number" value="0.37">
+                <p class="units"></p>
+            </div>
+            <div class="parameters">
+                <p class="name">Коэффициент теплоотдачи от крышки:</p>
+                <input class="alphaU" type="number" value="500">
+                <p class="units">
+                    Вт/(м
+                    <sup>
+                        <small>2</small>
+                    </sup>°С)
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<button class="culc">Расчёт</button>
+<button class="culc">Сохранить в Excel</button>
+<div class="res">
+    <div class="eff"></div>
+    <div class="tem"></div>
+    <div class="visc"></div>
+</div>
+<canvas class="one"></canvas>
+<canvas class="two"></canvas>
+<table class="table"></table>
+<!-- <script src="../js/script.js"></script> -->
+</body>
+
+</html>
